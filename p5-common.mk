@@ -34,9 +34,7 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_PATH)/init.p3.usb.rc:root/init.p3.usb.rc
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko
-
-PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
     $(LOCAL_PATH)/vold.fstab:system/etc/vold.fstab \
     $(LOCAL_PATH)/media_profiles.xml:system/etc/media_profiles.xml \
     $(LOCAL_PATH)/keylayout/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
@@ -81,13 +79,18 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
         ro.cwm.enable_key_repeat=true
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf
+
+PRODUCT_PACKAGES += \
+        libinvensense_mpl
+
 PRODUCT_PACKAGES += \
         Torch \
-        libinvensense_mpl \
         audio.a2dp.default \
         libaudioutils \
         audio.primary.p3
-        
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -106,6 +109,9 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
     frameworks/base/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/camera/nvcamera.conf:system/etc/nvcamera.conf
 
 PRODUCT_CHARACTERISTICS := tablet,nosdcard
 

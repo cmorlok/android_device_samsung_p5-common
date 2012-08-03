@@ -89,9 +89,6 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 
 #BOARD_LIB_DUMPSTATE := libdumpstate.ventana
 
-# Disable WebGL
-ENABLE_WEBGL := false
-
 # Use nicer font rendering
 BOARD_USE_SKIA_LCDTEXT := true
 
@@ -103,6 +100,9 @@ BOARD_NO_ALLOW_DEQUEUE_CURRENT_BUFFER := true
 
 # Custom graphics for recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/p5-common/recovery/graphics.c
+
+# Preload bootanimation in to memory
+TARGET_BOOTANIMATION_PRELOAD := true
 
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 699744256
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 14080704512

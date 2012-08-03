@@ -10,7 +10,7 @@ on early-init
     symlink /mnt/sdcard /sdcard
 
     # create directory for mounting usb drives
-    mkdir /mnt/usbdrive 0666 system system
+    mkdir /mnt/usbdrive 0664 system system
     symlink /mnt/usbdrive /usbdrive
 
     mkdir /efs 0771 system system
@@ -27,14 +27,15 @@ on init
     mkdir /dev/pipes 0771 shell shell        
 
 on fs
-    mount ext4 /dev/block/mmcblk0p4 /system wait ro
+    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p4 /system wait ro
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
-    mount ext4 /dev/block/mmcblk0p5 /cache wait noatime nosuid nodev
-    exec check_filesystem /dev/block/mmcblk0p8 ext4
-    mount ext4 /dev/block/mmcblk0p8 /data wait noatime nosuid nodev discard,noauto_da_alloc
+    exec check_filesystem /dev/block/platform/sdhci-tegra.3/by-num/p5 ext4
+    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p5 /cache wait noatime nosuid nodev journal_async_commit
+    exec check_filesystem /dev/block/platform/sdhci-tegra.3/by-num/p8 ext4
+    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p8 /data wait noatime nosuid nodev noauto_da_alloc,journal_async_commit
 
     # mound EFS partition
-    mount ext4 /dev/block/mmcblk0p1 /efs wait noatime nosuid nodev
+    mount ext4 /dev/block/platform/sdhci-tegra.3/by-num/p1 /efs wait noatime nosuid nodev
 
 on post-fs-data
     chown radio system /efs

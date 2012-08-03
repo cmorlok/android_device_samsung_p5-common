@@ -42,4 +42,4 @@
 /dev/usb/lp*           0660        system        usb
 
 # rfkill
-/dev/rfkill            0660    wifi    wifi
+/dev/rfkill     0660    wifi    wifi

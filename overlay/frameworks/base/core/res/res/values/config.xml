@@ -122,7 +122,7 @@
 
     <string name="config_networkLocationProviderPackageName">com.google.android.location</string>
 
-   <string name="config_geocodeProvider">com.google.android.location.GeocodeProvider</string>
+   <string name="config_geocodeProviderPackageName">com.google.android.location</string>
 
     <bool name="config_forceDisableHardwareKeyboard">true</bool>
 </resources>

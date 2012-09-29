@@ -69,20 +69,22 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_FLASH_BLOCK_SIZE := 4096
 
 # Wifi related defines
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WLAN_DEVICE                := bcmdhd
+BOARD_WLAN_DEVICE_REV            := bcm4330_b1
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_bcmdhd
-BOARD_WLAN_DEVICE := bcmdhd
-
-WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/dhd.ko"
-WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/dhd/parameters/firmware_path"
-WIFI_DRIVER_FW_PATH_AP      := "/system/etc/wifi/bcm4330_apsta.bin"
-WIFI_DRIVER_FW_PATH_STA     := "/system/etc/wifi/bcm4330_sta.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/system/etc/wifi/bcm4330_p2p.bin"
-WIFI_DRIVER_MODULE_NAME     := "dhd"
-WIFI_DRIVER_MODULE_ARG      := "iface_name=wlan0 firmware_path=/system/etc/wifi/bcm4330_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
+WIFI_DRIVER_MODULE_PATH          := "/system/lib/modules/dhd.ko"
+WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/dhd/parameters/firmware_path"
+WIFI_DRIVER_FW_PATH_STA          := "/system/etc/wifi/bcm4330_sta.bin"
+WIFI_DRIVER_FW_PATH_AP           := "/system/etc/wifi/bcm4330_apsta.bin"
+WIFI_DRIVER_FW_PATH_P2P          := "/system/etc/wifi/bcm4330_p2p.bin"
+WIFI_DRIVER_MODULE_NAME          := "dhd"
+WIFI_DRIVER_MODULE_ARG           := "firmware_path=/system/etc/wifi/bcm4330_sta.bin nvram_path=/system/etc/wifi/nvram_net.txt"
+WIFI_BAND                        := 802_11_ABG
+BOARD_LEGACY_NL80211_STA_EVENTS  := true
 
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true

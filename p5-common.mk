@@ -28,6 +28,7 @@ PRODUCT_MANUFACTURER := samsung
 #PRODUCT_AAPT_PREF_CONFIG := 
 
 PRODUCT_COPY_FILES := \
+    $(LOCAL_PATH)/fstab.p3:root/fstab.p3 \
     $(LOCAL_PATH)/init.p3.rc:root/init.p3.rc \
     $(LOCAL_PATH)/ueventd.p3.rc:root/ueventd.p3.rc \
     $(LOCAL_PATH)/lpm.rc:root/lpm.rc \
@@ -69,8 +70,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=15 \
     ro.sf.lcd_density=160
-
-BOARD_WLAN_DEVICE_REV := bcm4330_b1
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
 

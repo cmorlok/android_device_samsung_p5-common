@@ -102,9 +102,6 @@ BOARD_CHARGING_MODE_BOOTING_LPM := "/sys/class/power_supply/battery/charging_mod
 # Custom graphics for recovery
 BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/p5-common/recovery/graphics.c
 
-# Preload bootanimation in to memory
-TARGET_BOOTANIMATION_PRELOAD := true
-
 # Suppress EMMC WIPE
 BOARD_SUPPRESS_EMMC_WIPE := true
 
